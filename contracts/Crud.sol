@@ -21,7 +21,6 @@ contract Crud{
         return (users[i].id, users[i].name);
     }
 
-
     function update(uint256 id, string memory newName) public {
         uint i = find(id);
         users[i].name = newName;
@@ -39,6 +38,10 @@ contract Crud{
             }
         }
         revert('User does not exists');
+    }
+
+    function getAll() view public returns(User[] memory ){
+        return users;
     }
 
 }
